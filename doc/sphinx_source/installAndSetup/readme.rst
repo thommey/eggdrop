@@ -4,8 +4,8 @@ Last revised: Jul 2, 2016
 README
 ======
 
-Please at least SKIM this document before asking questions. In fact, READ IT
-if you've never successfully set up an Eggdrop bot before. PLEASE! READ IT!
+  Please at least *SKIM* this document before asking questions. In fact, READ IT
+  if you've never successfully set up an Eggdrop bot before. PLEASE! READ IT!
 
 ------
 NOTICE
