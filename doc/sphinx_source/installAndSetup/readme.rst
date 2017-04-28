@@ -4,17 +4,17 @@ Last revised: Jul 2, 2016
 README
 ======
 
-  Please at least SKIM this document before asking questions. In fact, READ IT
-  if you've never successfully set up an Eggdrop bot before. PLEASE! READ IT!
+Please at least SKIM this document before asking questions. In fact, READ IT
+if you've never successfully set up an Eggdrop bot before. PLEASE! READ IT!
 
 ------
 NOTICE
 ------
 
-    Please read this file carefully before trying to set up Eggdrop. Also,
-    make SURE that you select your +n (owner) users wisely! They have 100%
-    access to your bot and account! ONLY GIVE THIS POWER TO SOMEONE YOU
-    TRUST COMPLETELY!!
+Please read this file carefully before trying to set up Eggdrop. Also,
+make SURE that you select your +n (owner) users wisely! They have 100%
+access to your bot and account! ONLY GIVE THIS POWER TO SOMEONE YOU
+TRUST COMPLETELY!!
 
 ----------------
 What is Eggdrop?
