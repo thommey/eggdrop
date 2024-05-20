@@ -17,6 +17,7 @@ jobs:
       run: ./configure
     - name: make config
       run: make config
+    - uses: ammaraskar/gcc-problem-matcher@master
     - name: make
       run: make
     - name: make install
