@@ -16,6 +16,8 @@ jobs:
           std: 'c99'
           platform: 'unix64'
           log-level: 'verbose'
+          sources: 'src'
+          additional-args: '--force'
 
       - name: Annotate lines with errors
         uses: yuzutech/annotations-action@v0.4.0
