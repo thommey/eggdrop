@@ -1,24 +1,25 @@
-name: cppcheck
+name: cppcheck-annotations
 
 on:
   pull_request:
-    branches: 
-      - develop
 
 jobs:
   build:
-    name: cppcheck
+    name: cppcheck-annotations
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: cppcheck
-        uses: deep5050/cppcheck-action@main
-        with:
-          std: c99
-          inline_suppression: true
-          force: true
 
-      - name: publish report    
-        uses: mikeal/publish-to-github-action@master
-        env:
-          BRANCH_NAME: 'develop' # your branch name goes here
+      - name: Run cppcheck-annotation-action
+        uses: Konstantin343/cppcheck-annotation-action@v1.0
+        with:
+          std: 'c99'
+          platform: 'unix64'
+          log-level: 'verbose'
+
+      - name: Annotate lines with errors
+        uses: yuzutech/annotations-action@v0.4.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          title: 'Results of CppCheck'
+          input: 'annotations.json'
