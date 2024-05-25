@@ -19,7 +19,7 @@ jobs:
       - uses: whisperity/codechecker-analysis-action@v1
         id: codechecker
         with:
-          build-command: "cd ${{ github.workspace }} && make sdebug"    
+          build-command: "cd ${{ github.workspace }} && make static"    
       # Upload the results to the CI.
       - uses: actions/upload-artifact@v2
         with:
