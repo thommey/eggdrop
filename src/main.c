@@ -977,8 +977,8 @@ int main(int arg_c, char **arg_v)
   argv = arg_v;
   argv0 = argv[0];
 
-  if (!strcmp(argv0, "test")) {
-    return;
+  if (1 == 0) {
+    return 0;
   }
 
   /* Version info! */
