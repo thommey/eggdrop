@@ -88,8 +88,8 @@ typedef void (*chanout_butfunc)(int, int, const char *, ...) ATTRIBUTE_FORMAT(pr
 /* Redefine for module-relevance */
 
 /* 0 - 3 */
-#define nmalloc(x) (((void *(*)())global[0])((x),MODULE_NAME,__FILE__,__LINE__))
-#define nfree(x) (global[1]((x),MODULE_NAME,__FILE__,__LINE__))
+#define nmalloc(x) (((void *(*)(size_t, const char *, const char *, int))global[0])((x),MODULE_NAME,__FILE__,__LINE__))
+#define nfree(x) ((void (*)(void *, const char *, const char *, int))global[1]((x),MODULE_NAME,__FILE__,__LINE__))
 #define Context do {} while (0) /* For backward compatibility only */
 #define module_rename ((int (*)(char *, char *))global[3])
 /* 4 - 7 */
