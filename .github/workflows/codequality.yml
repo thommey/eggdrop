@@ -1,0 +1,23 @@
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check out repository"
+        uses: actions/checkout@v2
+      - name: "configure"
+        run: ./configure
+      - name: "make config"
+        run: make config
+      - uses: whisperity/codechecker-analysis-action@v1
+        id: codechecker
+        with:
+          build-command: "cd ${{ github.workspace }} && make"    
+      # Upload the results to the CI.
+      - uses: actions/upload-artifact@v2
+        with:
+          name: "CodeChecker Bug Reports"
+          path: ${{ steps.codechecker.outputs.result-html-dir }}
