@@ -8,22 +8,19 @@ jobs:
     steps:
       - name: "Check out repository"
         uses: actions/checkout@v2
-      - name: "Install dependencies"
-        run: sudo apt-get install tcl tcl-dev openssl libssl-dev
+      - name: "Prepare environment"
+        run: sudo apt-get install tcl tcl-dev openssl libssl-dev; find /usr -name EXTERNALLY-MANAGED -delete
       - name: "configure"
         env:
           CC: clang
         run: ./configure
       - name: "make config"
         run: make config
-      - name: "debug output"
-        run: grep . config.log Makefile src/Makefile
       - uses: whisperity/codechecker-analysis-action@v1
         id: codechecker
         with:
           build-command: "cd ${{ github.workspace }} && make eggdrop"
-      # Upload the results to the CI.
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: "CodeChecker Bug Reports"
           path: ${{ steps.codechecker.outputs.result-html-dir }}
