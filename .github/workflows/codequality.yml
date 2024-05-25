@@ -11,6 +11,8 @@ jobs:
       - name: "Install dependencies"
         run: sudo apt-get install tcl tcl-dev openssl libssl-dev
       - name: "configure"
+        env:
+          CC: clang
         run: ./configure
       - name: "make config"
         run: make config
