@@ -16,6 +16,8 @@ jobs:
         run: ./configure
       - name: "make config"
         run: make config
+      - name: "debug output"
+        run: grep . config.log src/Makefile
       - uses: whisperity/codechecker-analysis-action@v1
         id: codechecker
         with:
