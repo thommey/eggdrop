@@ -88,8 +88,8 @@ typedef void (*chanout_butfunc)(int, int, const char *, ...) ATTRIBUTE_FORMAT(pr
 /* Redefine for module-relevance */
 
 /* 0 - 3 */
-#define nmalloc(x) (((void *(*)())global[0])((x),MODULE_NAME,__FILE__,__LINE__))
-#define nfree(x) (global[1]((x),MODULE_NAME,__FILE__,__LINE__))
+#define nmalloc(x) (((void *(*)(size_t, const char *, const char *, int))global[0])((x),MODULE_NAME,__FILE__,__LINE__))
+#define nfree(x) ((void (*)(void *, const char *, const char *, int))global[1]((x),MODULE_NAME,__FILE__,__LINE__))
 #define Context do {} while (0) /* For backward compatibility only */
 #define module_rename ((int (*)(char *, char *))global[3])
 /* 4 - 7 */
@@ -116,7 +116,7 @@ typedef void (*chanout_butfunc)(int, int, const char *, ...) ATTRIBUTE_FORMAT(pr
 #define base64_to_int ((int (*) (char *))global[20])
 #define int_to_base64 ((char * (*) (int))global[21])
 #define int_to_base10 ((char * (*) (int))global[22])
-#define simple_sprintf ((int (*)())global[23])
+#define simple_sprintf ((int (*)(char *, const char *, ...))global[23])
 /* 24 - 27 */
 #define botnet_send_zapf ((void (*)(int, char *, char *, char *))global[24])
 #define botnet_send_zapf_broad ((void (*)(int, char *, char *, char *))global[25])

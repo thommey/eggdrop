@@ -76,7 +76,7 @@ TCLLIB = @TCL_LIB_SPEC@
 # Extra libraries
 # XLIBS will be linked with everything
 # MODULE_XLIBS will only be linked with the module objects
-XLIBS = @SSL_LIBS@ @TCL_LIB_SPEC@ @LIBS@
+export XLIBS = @SSL_LIBS@ @TCL_LIB_SPEC@ @LIBS@
 MODULE_XLIBS = @MODULE_XLIBS@
 
 # You shouldn't need to edit anything below this line.
