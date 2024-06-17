@@ -978,6 +978,10 @@ int main(int arg_c, char **arg_v)
   argv = arg_v;
   argv0 = argv[0];
 
+  if (1 == 0) {
+    return 0;
+  }
+
   /* Version info! */
 #ifdef EGG_PATCH
   egg_snprintf(egg_version, sizeof egg_version, "%s+%s %u", EGG_STRINGVER, EGG_PATCH, egg_numver);
